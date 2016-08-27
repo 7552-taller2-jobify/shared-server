@@ -1,0 +1,24 @@
+{
+  "name": "shared-server",
+  "version": "1.0.0",
+  "description": "## Descripción Dado que se requiere poseer varios servidores para la descentralización de la administración de datos de uso común de la aplicación, este servidor se encuentre disponible en la nube utilizando como plataforma Heroku (https://www.heroku.com/). Se entiende por datos de uso común a: * Listado de skills disponibles * Listado de posiciones de trabajo disponibles * Listado de categorías asociadas a las posiciones de trabajo o skills disponibles",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7552-taller2-jobify/shared-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/7552-taller2-jobify/shared-server/issues"
+  },
+  "homepage": "https://github.com/7552-taller2-jobify/shared-server#readme"
+}
