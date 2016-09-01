@@ -15,9 +15,14 @@ Este servidor deberá permitir administrar estos datos utilizando una interfaz g
 * Instalar NVM (Node Virtual Manager) que permite tener distintas versiones de node.js a través de un simple comando.
 https://github.com/creationix/nvm
 * node.js v4.5.0
-* Ejecutar
+* 
 ```
   npm install
+```
+
+## Running
+```
+  npm start
 ```
 
 
