@@ -1,6 +1,6 @@
-# shared-server
-
 [![Build Status](https://travis-ci.org/7552-taller2-jobify/shared-server.svg?branch=master)](https://travis-ci.org/7552-taller2-jobify/shared-server)
+
+# shared-server
 
 ## Descripción
 Dado que se requiere poseer varios servidores para la descentralización de la administración de datos de uso común de la aplicación, este servidor se encuentre disponible en la nube utilizando como plataforma Heroku (https://www.heroku.com/).
