@@ -1,3 +1,5 @@
 language: node_js
 node_js:
-    - "4"
+    - "4.5.0"
+notifications:
+    slack: 7552-taller2-jobify:ypMbd7mVu20aUDjFzKM21NRJ
