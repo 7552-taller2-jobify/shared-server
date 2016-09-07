@@ -24,7 +24,8 @@ https://github.com/creationix/nvm
 
 ## Running
 ```
-  npm start
+  $ docker run -it --rm -v $PWD:/usr/src/app 7552taller2jobify/shared-server /bin/bash
+  $ npm start
 ```
 
 
