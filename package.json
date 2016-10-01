@@ -4,8 +4,17 @@
   "description": "## Descripción Dado que se requiere poseer varios servidores para la descentralización de la administración de datos de uso común de la aplicación, este servidor se encuentre disponible en la nube utilizando como plataforma Heroku (https://www.heroku.com/). Se entiende por datos de uso común a: * Listado de skills disponibles * Listado de posiciones de trabajo disponibles * Listado de categorías asociadas a las posiciones de trabajo o skills disponibles",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "dateformat": "^1.0.12",
     "express": "^4.14.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "pg": "^6.1.0",
+    "pg-hstore": "^2.3.2",
+    "q": "^1.4.1",
+    "sequelize": "^3.24.2",
+    "sequelize-cli": "^2.4.0",
+    "underscore": "^1.8.3",
+    "yargs": "^5.0.0"
   },
   "devDependencies": {
     "mocha": "^3.0.2"
