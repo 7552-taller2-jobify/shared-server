@@ -31,6 +31,7 @@ app.get("/test", function(req, res) {
 app.get("/", function(req, res, next) {
   Skill.findAll()
     .then(function(skills) {
+      skills = normalizeSkills(skills);
       console.log(skills);
       res.setHeader('Content-Type', 'application/json');
       res.status(200).send(metadata({skills: skills}));
@@ -39,6 +40,22 @@ app.get("/", function(req, res, next) {
       next(err);
     });
 });
+
+var normalizeSkill = function(skill) {
+  return {
+    name: skill.name,
+    category: skill.category_name,
+    description: skill.description
+  };
+};
+
+var normalizeSkills = function(skills) {
+  var newSkills = [];
+  for (index in skills) {
+    newSkills.push(normalizeSkill(skills[index]));
+  }
+  return newSkills;
+};
 
 var validateCategory = function(req, res, next) {
   console.log('validando la categoria');
@@ -84,8 +101,9 @@ app.post("/:category", validateCategory, function(req, res, next) {
 
   Skill.create(skill2Save)
     .then(function(skill) {
+      skill = normalizeSkill(skill);
       console.log(skill);
-      res.status(201).json([skill2Save]);
+      res.status(201).json([skill]);
     })
     .catch(function(err) {
       next(err);
@@ -118,8 +136,9 @@ app.put("/:category/:name", validateCategory, function(req, res, next) {
   Skill.update(skill2Update, {where:
     {category_name: req.params.category, name: body.name}})
     .then(function(skill) {
+      skill = normalizeSkill(skill);
       console.log(skill);
-      res.status(200).json([skill2Update]);
+      res.status(200).json([skill]);
     })
     .catch(function(err) {
       next(err);

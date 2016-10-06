@@ -49,7 +49,7 @@ curl -v -XPOST 'http://localhost:5000/skills/software' -d 'description=Conoce Ja
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST 'http://localhost:5000/skills/software' -d 'description=Conoce bien C\+\+&name=c\+\+';
+curl -v -XPOST 'http://localhost:5000/skills/software' -d 'description=Conoce bien C&name=c';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";

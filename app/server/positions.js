@@ -36,6 +36,7 @@ app.get("/test", function(req, res) {
 app.get("/", function(req, res, next) {
   Position.findAll()
     .then(function(positions) {
+      positions = normalizePositions(positions);
       console.log(positions);
       res.setHeader('Content-Type', 'application/json');
       res.status(200).send(metadata({job_positions: positions}));
@@ -44,6 +45,22 @@ app.get("/", function(req, res, next) {
       next(err);
     });
 });
+
+var normalizePosition = function(position) {
+  return {
+    name: position.name,
+    category: position.category_name,
+    description: position.description
+  };
+};
+
+var normalizePositions = function(positions) {
+  var newPositions = [];
+  for (index in positions) {
+    newPositions.push(normalizePosition(positions[index]));
+  }
+  return newPositions;
+};
 
 var validateCategory = function(req, res, next) {
   console.log('validando la categoria');
@@ -67,6 +84,7 @@ var bodyMissing = function(body, field) {
 app.get("/:category", validateCategory, function(req, res, next) {
   Position.findAll({where: {category_name: req.params.category}})
     .then(function(positions) {
+      positions = normalizePositions(positions); 
       console.log(positions);
       res.status(200).json(metadata({job_positions: positions}));
     })
@@ -98,8 +116,9 @@ app.post("/categories/:category", validateCategory, function(req, res, next) {
 
   Position.create(position2Save)
     .then(function(pos) {
+      pos = normalizePosition(pos);
       console.log(pos);
-      res.status(201).json([position2Save]);
+      res.status(201).json([pos]);
     })
     .catch(function(err) {
       next(err);
@@ -132,8 +151,9 @@ app.put("/:category/:name", validateCategory, function(req, res, next) {
   Position.update(position2Update, {where:
     {category_name: req.params.category, name: body.name}})
     .then(function(pos) {
+      pos = normalizePosition(pos);
       console.log(pos);
-      res.status(200).json([position2Update]);
+      res.status(200).json([pos]);
     })
     .catch(function(err) {
       next(err);
