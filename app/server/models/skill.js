@@ -9,7 +9,7 @@ var Skill = sequelize.define('skill', {
   indexes: [{unique: true, fields: ['name']}]
 });
 
-Category.hasMany(Skill, {foreignKey: 'category_name'});
+Category.hasMany(Skill, {foreignKey: 'category_name', constraints: false});
 Skill.sync();
 
 module.exports = Skill;
