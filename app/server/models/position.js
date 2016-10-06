@@ -10,9 +10,10 @@ var Position = sequelize.define('position', {
   indexes: [{unique: true, fields: ['name']}]
 });
 
-
 Category.sync();
+
 Position.belongsTo(Category, {foreignKey: 'category_name'}); // must have category_name attribte in Position
+
 Position.sync();
 
 module.exports = Position;
