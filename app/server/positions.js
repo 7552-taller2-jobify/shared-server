@@ -76,7 +76,7 @@ app.get("/:category", validateCategory, function(req, res, next) {
 });
 
 // Alta de puestos
-app.post("categories/:category", validateCategory, function(req, res, next) {
+app.post("/categories/:category", validateCategory, function(req, res, next) {
   var body = req.body;
   console.log("Validation before saving Position, body=" +
     JSON.stringify(body));
