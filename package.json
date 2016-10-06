@@ -7,7 +7,6 @@
     "body-parser": "^1.15.2",
     "dateformat": "^1.0.12",
     "express": "^4.14.0",
-    "mocha": "^3.0.2",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
     "q": "^1.4.1",
@@ -17,15 +16,43 @@
     "yargs": "^5.0.0"
   },
   "devDependencies": {
-    "mocha": "^3.0.2"
+    "eslint": "^3.7.1",
+    "eslint-config-google": "^0.6.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-jasmine": "^1.8.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.5.2",
+    "request": "^2.75.0",
+    "supertest": "^2.0.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "test": "./node_modules/mocha/bin/mocha test"
+    "start": "node app/server/server.js",
+    "test": "./node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=config/jasmine.json .",
+    "lint": "./node_modules/eslint/bin/eslint.js app/** spec/**"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/7552-taller2-jobify/shared-server.git"
+  },
+  "eslintConfig": {
+    "extends": "google",
+    "plugins": [
+      "jasmine"
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "jasmine": true
+    },
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ]
+    }
   },
   "keywords": [],
   "author": "",
