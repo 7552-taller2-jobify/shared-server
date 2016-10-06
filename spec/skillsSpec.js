@@ -1,5 +1,5 @@
-var request = require("supertest");
-var app = require("../app/server/skills");
+// var request = require("supertest");
+// var app = require("../app/server/skills");
 
 // var skill
 // beforeEach(function() {
@@ -15,7 +15,6 @@ describe("A suite is just a function", function() {
 
     expect(a).toBe(true);
   });
-
 });
 
 describe("SkillsRoute", function() {

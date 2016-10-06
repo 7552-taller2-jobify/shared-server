@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "node app/server/server.js",
-    "test": "./node_modules/jasmine/bin/jasmine.js",
+    "test": "./node_modules/eslint/bin/eslint.js app/** spec/**; ./node_modules/jasmine/bin/jasmine.js",
     "lint": "./node_modules/eslint/bin/eslint.js app/** spec/**"
   },
   "repository": {
