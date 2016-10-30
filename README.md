@@ -25,6 +25,7 @@ Este servidor deberá permitir administrar estos datos utilizando una interfaz g
 
 ```
   $ dev/run
+  $ npm i
   $ npm start
 ```
 

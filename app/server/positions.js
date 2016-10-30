@@ -126,7 +126,7 @@ app.post("/categories/:category", validateCategory, function(req, res, next) {
 });
 
 // Modificación de puestos
-app.put("/:category/:name", validateCategory, function(req, res, next) {
+app.put("/categories/:category/:name", validateCategory, function(req, res, next) {
   var body = req.body;
   console.log("Validation before updating Position, body=" +
     JSON.stringify(body));
@@ -161,7 +161,7 @@ app.put("/:category/:name", validateCategory, function(req, res, next) {
 });
 
 // Baja de puestos
-app.delete("/:category/:name", validateCategory, function(req, res, next) {
+app.delete("/categories/:category/:name", validateCategory, function(req, res, next) {
   Position.destroy({where: {category_name: req.params.category,
     name: req.params.name}})
     .then(function(pos) {

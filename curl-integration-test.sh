@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#HOST="localhost:5000";
-HOST="https://jobify-7552-taller2.herokuapp.com";
+HOST="localhost:5000";
+
+#HOST="https://jobify-7552-taller2.herokuapp.com";
 
 # ================== JOB_POSITIONS ==================
 echo "================== JOB_POSITIONS =================="
@@ -48,19 +49,19 @@ curl -v -XGET "$HOST/skills";
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST "$HOST/skills/software" -d 'description=Conoce Java&name=java';
+curl -v -XPOST "$HOST/skills/categories/software" -d 'description=Conoce Java&name=java';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST "$HOST/skills/software" -d 'description=Conoce bien C&name=c';
+curl -v -XPOST "$HOST/skills/categories/software" -d 'description=Conoce bien C&name=c';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST "$HOST/skills/software" -d 'description=Conoce bien Android&name=android';
+curl -v -XPOST "$HOST/skills/categories/software" -d 'description=Conoce bien Android&name=android';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST "$HOST/skills/software" -d 'description=Empieza&name=trainee';
+curl -v -XPOST "$HOST/skills/categories/software" -d 'description=Empieza&name=trainee';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 200 Todas las habilidades existentes";
@@ -68,7 +69,7 @@ curl -v -XGET "$HOST/skills";
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 200 Modificación correcta";
-curl -v -XPUT "$HOST/skills/software/java" -d 'description=Conoce bien Java&name=java&category=software';
+curl -v -XPUT "$HOST/skills/categories/software/java" -d 'description=Conoce bien Java&name=java&category=software';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 200 Todas las habilidades existentes";
@@ -76,11 +77,11 @@ curl -v -XGET "$HOST/skills";
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 204 Baja correcta";
-curl -v -XDELETE "$HOST/skills/sorfware/trainee";
+curl -v -XDELETE "$HOST/skills/categories/sorfware/trainee";
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 201 Alta correcta";
-curl -v -XPOST "$HOST/skills/oficina" -d 'description=Chica capaz para administrar tareas&name=secretaria';
+curl -v -XPOST "$HOST/skills/categories/oficina" -d 'description=Chica capaz para administrar tareas&name=secretaria';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "SKILLS 200 Todas las habilidades existentes";
@@ -115,6 +116,10 @@ echo -e "\n---------------------------------------------------------------------
 
 echo "JOB_POSITION: 201 Alta de puesto";
 curl -v -XPOST "$HOST/job_positions/categories/oficina" -d 'name=secretaria&description=pro-activa';
+echo -e "\n---------------------------------------------------------------------\n\n"
+
+echo "JOB_POSITION: 200 Update de puesto";
+curl -v -XPOST "$HOST/job_positions/categories/oficina/secretaria" -d 'name=secretaria&description=Pro-Activa';
 echo -e "\n---------------------------------------------------------------------\n\n"
 
 echo "JOB_POSITION: 200 Todas los puestos de la categoría";
