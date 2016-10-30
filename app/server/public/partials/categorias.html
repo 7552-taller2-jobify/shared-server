@@ -1,0 +1,44 @@
+
+<div layout="column" class="doc-demo-content doc-content" ng-controller="CategoriasCtrl">
+
+	<h1>Categorias</h1>	
+	<md-content layout-gt-sm="row" layout-padding>
+		<div class="layout-gt-xs-row">
+			<md-input-container class="md-block flex-gt-xs" flex-gt-xs>
+			<label>Nombre</label>
+			<input type="text" name="name" ng-model="name">
+			</md-input-container>
+			<md-input-container class="md-block">
+			<label>Descripción</label>
+			<input type="text" name="description" ng-model="description">
+			</md-input-container>
+			<md-button ng-click="crearCategoria()">
+			Agregar	
+			</md-button>
+		</div>
+	</md-content>
+		
+	
+	<div  ng-init="getCategorias()">
+	<table class="md-api-table">
+		<tr>
+			<th>Nombre</th>
+			<th>Descripción</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="categoria in categorias">
+			<td>
+				{{categoria.name}} 
+			</td>
+			<td>
+				{{categoria.description}}
+			</td>
+			<td>
+				<md-button class="md-raised md-warn" ng-click="borrarCategoria($index)">
+					Borrar
+				</md-button>
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>

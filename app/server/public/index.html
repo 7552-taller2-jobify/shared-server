@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shared-server</title>
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/docs.css">
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular/angular-route.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-material/angular-material.js"></script>
+	
+  </head>
+  <body ng-app="sharedApp" layout="column">	   
+	  <md-toolbar layout="row" ng-controller="sharedAppController as app" >
+		  <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleMenu()">
+			  <md-icon md-svg-icon="menu"></md-icon>
+		  </md-button>
+		  <h1>Shared server</h1>
+	  </md-toolbar>
+	  <div class="container" layout="row" flex>
+		<md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" ng-click="app.toggleList()">
+		  <md-list>
+		  		<md-list-item>
+				  <md-button href="#puestos">
+					  Puestos
+				  </md-button>
+			  </md-list-item>
+			  <md-list-item>
+				  <md-button href="#habilidades">
+					  Habilidades
+				  </md-button>
+			  </md-list-item>
+			  <md-list-item>
+				  <md-button href="#categorias">
+					  Categorias
+				  </md-button>
+			  </md-list-item>
+		  </md-list>
+		</md-sidenav>
+	  <md-content class="lightgreen" flex>
+		  <div ng-view>
+		  	
+		  </div>
+
+	  </md-content>
+	  </div>
+	  
+	  <script src="js/sharedApp.js"></script>
+	  <script>
+	  </script>
+	  
+  </body> 
+</html>

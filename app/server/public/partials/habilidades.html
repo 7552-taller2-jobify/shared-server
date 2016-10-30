@@ -1,0 +1,56 @@
+<div layout="column" class="doc-demo-content doc-content" ng-controller="HabilidadesCtrl">
+
+	<h1>Habilidades</h1>	
+	<md-content layout-gt-sm="row" layout-padding>
+		<div class="layout-gt-xs-row" ng-init="getCategorias()">
+			<md-input-container class="md-block flex-gt-xs" flex-gt-xs>
+			<label>Nombre</label>
+			<input type="text" name="name" ng-model="name">
+			</md-input-container>
+			<md-input-container class="md-block">
+			<label>Descripción</label>
+			<input type="text" name="description" ng-model="description">
+			</md-input-container>
+			
+			<md-input-container>
+	          <label>Categoria</label>
+	          <md-select ng-model="categoria">
+	            <md-option ng-repeat="categoria in categorias" ng-value="categoria.name">
+	              {{categoria.name}}
+	            </md-option>
+	          </md-select>
+	        </md-input-container>
+			<md-button ng-click="crearHabilidad()">
+			Agregar	
+			</md-button>
+		</div>
+	</md-content>
+		
+	
+	<div  ng-init="getHabilidades()">
+	<table class="md-api-table">
+		<tr>
+			<th>Nombre</th>
+			<th>Descripción</th>
+			<th>Categoria</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="habilidad in habilidades">
+			<td>
+				{{habilidad.name}} 
+			</td>
+			<td>
+				{{habilidad.description}}
+			</td>
+			<td>
+				{{habilidad.category}}
+			</td>
+			<td>
+				<md-button class="md-raised md-warn" ng-click="borrarHabilidad($index)">
+					Borrar
+				</md-button>
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>

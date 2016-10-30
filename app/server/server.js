@@ -6,6 +6,9 @@ var categories = require("./categories");
 var skills = require("./skills");
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
+
 // extends to qs lib
 app.use(bodyParser.urlencoded({extended: true}));
 // Needed to read req.body
