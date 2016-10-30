@@ -80,7 +80,7 @@ var bodyMissing = function(body, field) {
 };
 
 // Alta de habilidades
-app.post("/:category", validateCategory, function(req, res, next) {
+app.post("/categories/:category", validateCategory, function(req, res, next) {
   var body = req.body;
   console.log("Validation before saving Skill, body=" + JSON.stringify(body));
   if (body === undefined) {
@@ -111,7 +111,7 @@ app.post("/:category", validateCategory, function(req, res, next) {
 });
 
 // Modificación de habilidades
-app.put("/:category/:name", validateCategory, function(req, res, next) {
+app.put("/categories/:category/:name", validateCategory, function(req, res, next) {
   var body = req.body;
   console.log("Validation before updating Skill, body=" +
     JSON.stringify(body));
@@ -136,6 +136,7 @@ app.put("/:category/:name", validateCategory, function(req, res, next) {
   Skill.update(skill2Update, {where:
     {category_name: req.params.category, name: body.name}})
     .then(function(skill) {
+      console.log("Previa de skill [" + skill + "]");
       skill = normalizeSkill(skill);
       console.log(skill);
       res.status(200).json([skill]);
@@ -146,7 +147,7 @@ app.put("/:category/:name", validateCategory, function(req, res, next) {
 });
 
 // Baja de habilidades
-app.delete("/:category/:name", validateCategory, function(req, res, next) {
+app.delete("/categories/:category/:name", validateCategory, function(req, res, next) {
   Skill.destroy({where:
     {category_name: req.params.category, name: req.params.name}})
     .then(function(skill) {
