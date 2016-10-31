@@ -10,8 +10,8 @@ var Position = sequelize.define('position', {
   indexes: [{unique: true, fields: ['name']}]
 });
 
-
-Position.belongsTo(Category, {foreignKey: 'category_name', constraints: false}); // must have category_name attribte in Position
+// must have category_name attribte in Position
+Position.belongsTo(Category, {foreignKey: 'category_name', constraints: false});
 
 Category.sync();
 

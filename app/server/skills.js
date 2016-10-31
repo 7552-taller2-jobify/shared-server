@@ -27,6 +27,23 @@ app.get("/test", function(req, res) {
   res.send(json);
 });
 
+var normalizeSkill = function(skill) {
+  return {
+    name: skill.name,
+    category: skill.category_name,
+    description: skill.description
+  };
+};
+
+var normalizeSkills = function(skills) {
+  var newSkills = [];
+  var index;
+  for (index in skills) {
+    if (index !== undefined) newSkills.push(normalizeSkill(skills[index]));
+  }
+  return newSkills;
+};
+
 // Listado de habilidades
 app.get("/", function(req, res, next) {
   Skill.findAll()
@@ -40,22 +57,6 @@ app.get("/", function(req, res, next) {
       next(err);
     });
 });
-
-var normalizeSkill = function(skill) {
-  return {
-    name: skill.name,
-    category: skill.category_name,
-    description: skill.description
-  };
-};
-
-var normalizeSkills = function(skills) {
-  var newSkills = [];
-  for (index in skills) {
-    newSkills.push(normalizeSkill(skills[index]));
-  }
-  return newSkills;
-};
 
 var validateCategory = function(req, res, next) {
   console.log('validando la categoria');

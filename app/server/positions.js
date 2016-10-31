@@ -32,6 +32,24 @@ app.get("/test", function(req, res) {
   res.send(json);
 });
 
+var normalizePosition = function(position) {
+  return {
+    name: position.name,
+    category: position.category_name,
+    description: position.description
+  };
+};
+
+var normalizePositions = function(positions) {
+  var newPositions = [];
+  var index;
+  for (index in positions) {
+    if (index !== undefined)
+      newPositions.push(normalizePosition(positions[index]));
+  }
+  return newPositions;
+};
+
 // Listado de puestos
 app.get("/", function(req, res, next) {
   Position.findAll()
@@ -45,22 +63,6 @@ app.get("/", function(req, res, next) {
       next(err);
     });
 });
-
-var normalizePosition = function(position) {
-  return {
-    name: position.name,
-    category: position.category_name,
-    description: position.description
-  };
-};
-
-var normalizePositions = function(positions) {
-  var newPositions = [];
-  for (index in positions) {
-    newPositions.push(normalizePosition(positions[index]));
-  }
-  return newPositions;
-};
 
 var validateCategory = function(req, res, next) {
   console.log('validando la categoria');
@@ -84,7 +86,7 @@ var bodyMissing = function(body, field) {
 app.get("/:category", validateCategory, function(req, res, next) {
   Position.findAll({where: {category_name: req.params.category}})
     .then(function(positions) {
-      positions = normalizePositions(positions); 
+      positions = normalizePositions(positions);
       console.log(positions);
       res.status(200).json(metadata({job_positions: positions}));
     })
