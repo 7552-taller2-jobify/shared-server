@@ -104,7 +104,7 @@ app.post("/categories/:category", validateCategory, function(req, res, next) {
     res.status(400).json({code: 400, message: 'Falta body'});
   } else if (body.name === undefined || body.description === undefined) {
     res.status(400).json({code: 400, message: "Falta atributo en body: " +
-      bodyMissing(body, "name") + bodyMissing(body, "description")});
+      bodyMissing(body, "name") + ' ' + bodyMissing(body, "description")});
   } else {
     next();
   }
@@ -137,7 +137,7 @@ app.put("/categories/:category/:name", validateCategory, function(req, res, next
   } else if (body.name === undefined || body.category === undefined ||
     body.description === undefined) {
     res.status(400).json({code: 400, message: "Falta atributo en body: " +
-      bodyMissing(body, "name") + bodyMissing(body, "category") +
+      bodyMissing(body, "name") + ' ' + bodyMissing(body, "category") + ' ' +
       bodyMissing(body, "description")});
   } else {
     next();
@@ -151,7 +151,7 @@ app.put("/categories/:category/:name", validateCategory, function(req, res, next
   };
 
   Position.update(position2Update, {where:
-    {category_name: req.params.category, name: body.name}})
+    {category_name: req.params.category, name: req.params.name}})
     .then(function(pos) {
       pos = normalizePosition(pos);
       console.log(pos);

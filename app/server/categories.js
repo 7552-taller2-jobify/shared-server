@@ -67,7 +67,7 @@ var validateBody = function(req, res, next) {
     res.status(400).json({code: 400, message: 'Falta body'});
   } else if (body.name === undefined || body.description === undefined) {
     res.status(400).json({code: 400, message: "Falta atributo en body: " +
-      bodyMissing(body, "name") + bodyMissing(body, "description")});
+      bodyMissing(body, "name") + ' ' + bodyMissing(body, "description")});
   } else {
     next();
   }
@@ -99,7 +99,7 @@ app.put("/:name", validateCategory, validateBody, function(req, res, next) {
     description: body.description
   };
 
-  Category.update(category2Update, {where: {name: body.name}})
+  Category.update(category2Update, {where: {name: req.params.name}})
     .then(function(category) {
       console.log(category);
       res.status(200).json([category2Update]);

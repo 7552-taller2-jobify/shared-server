@@ -1,0 +1,21 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Editar categoria </h2>
+    </div>
+</md-toolbar>
+	<md-content layout-gt-sm="row" layout-padding>
+		<div class="layout-gt-xs-row">
+			<md-input-container class="md-block flex-gt-xs" flex-gt-xs>
+			<label>Nombre</label>
+			<input type="text" name="name" ng-model="nameEdit">
+			</md-input-container>
+			<md-input-container class="md-block">
+			<label>Descripción</label>
+			<input type="text" name="description" ng-model="descriptionEdit">
+			</md-input-container>
+			<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+		        <md-button class="md-primary" ng-click="editarCategoria()">Guardar</md-button>
+		        <md-button href="#categorias" >Cancelar</md-button>
+		    </section>
+		</div>
+	</md-content>

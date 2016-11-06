@@ -1,6 +1,9 @@
-<div layout="column" class="doc-demo-content doc-content" ng-controller="PuestosCtrl">
-
-	<h1>Puestos</h1>	
+<div layout="column" ng-controller="HabilidadesCtrl" id="popupContainer">
+	<md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Habilidades</h2>
+        </div>
+    </md-toolbar>
 	<md-content layout-gt-sm="row" layout-padding>
 		<div class="layout-gt-xs-row" ng-init="getCategorias()">
 			<md-input-container class="md-block flex-gt-xs" flex-gt-xs>
@@ -20,14 +23,14 @@
 	            </md-option>
 	          </md-select>
 	        </md-input-container>
-			<md-button ng-click="crearPuesto()">
+			<md-button ng-click="crearHabilidad()">
 			Agregar	
 			</md-button>
 		</div>
 	</md-content>
 		
 	
-	<div  ng-init="getPuestos()">
+	<div  ng-init="getHabilidades()">
 	<table class="md-api-table">
 		<tr>
 			<th>Nombre</th>
@@ -35,18 +38,21 @@
 			<th>Categoria</th>
 			<th></th>
 		</tr>
-		<tr ng-repeat="puesto in puestos">
+		<tr ng-repeat="habilidad in habilidades">
 			<td>
-				{{puesto.name}} 
+				{{habilidad.name}} 
 			</td>
 			<td>
-				{{puesto.description}}
+				{{habilidad.description}}
 			</td>
 			<td>
-				{{puesto.category}}
+				{{habilidad.category}}
 			</td>
 			<td>
-				<md-button class="md-raised md-warn" ng-click="borrarPuesto($index)">
+				<md-button class="md-raised md-primary" href="#habilidades/categorias/{{habilidad.category}}/{{habilidad.name}}/edit?description={{habilidad.description}}">
+					Editar
+				</md-button>
+				<md-button class="md-raised md-warn" ng-click="borrarHabilidad($index)">
 					Borrar
 				</md-button>
 			</td>
