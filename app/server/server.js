@@ -4,7 +4,12 @@ var bodyParser = require('body-parser');
 var positions = require("./positions");
 var categories = require("./categories");
 var skills = require("./skills");
+var path = require("path");
 var app = express();
+
+var ngPath = path.join(__dirname, '../ui');
+console.log(ngPath);
+app.use(express.static(ngPath));
 
 // extends to qs lib
 app.use(bodyParser.urlencoded({extended: true}));
