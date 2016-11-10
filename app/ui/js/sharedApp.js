@@ -1,5 +1,5 @@
 
-var host = 'http://localhost:5000';
+var host = 'http://jobify-7552-taller2.herokuapp.com:5000';
 var app = angular.module('sharedApp', ['ngMaterial', 'ngRoute']).config(function($mdIconProvider){ 
   $mdIconProvider.icon('menu', './images/menu.svg', 24);});
 
