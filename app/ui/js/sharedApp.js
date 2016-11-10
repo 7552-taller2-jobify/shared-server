@@ -1,5 +1,5 @@
 
-var host = 'http://localhost:5000';
+var host = 'https://localhost:5000';
 var app = angular.module('sharedApp', ['ngMaterial', 'ngRoute']).config(function($mdIconProvider){ 
   $mdIconProvider.icon('menu', './images/menu.svg', 24);});
 
@@ -118,8 +118,7 @@ app.controller('PuestosCtrl', function ($scope,$http, $mdDialog,$routeParams,$lo
     };
     $scope.getPuestos = function() {
         $http({ method : 'GET',
-                url : host + '/job_positions', 
-                headers: { 'X-Parse-Application-Id':'XXX', 'X-Parse-REST-API-Key':'YYY'}})
+                url : host + '/job_positions'})
             .success(function(data, status) {
                 $scope.puestos = data.job_positions;
                 console.log(data);
@@ -131,8 +130,7 @@ app.controller('PuestosCtrl', function ($scope,$http, $mdDialog,$routeParams,$lo
     };
         $scope.getCategorias = function() {
         $http({ method : 'GET',
-                url : host + '/categories', 
-                headers: { 'X-Parse-Application-Id':'XXX', 'X-Parse-REST-API-Key':'YYY'}})
+                url : host + '/categories'})
             .success(function(data, status) {
                 $scope.categorias = data.categories;
                 console.log(data);
@@ -214,8 +212,7 @@ app.controller('HabilidadesCtrl', function ($scope,$http, $mdDialog,$routeParams
     };
     $scope.getHabilidades = function() {
         $http({ method : 'GET',
-                url : host + '/skills', 
-                headers: { 'X-Parse-Application-Id':'XXX', 'X-Parse-REST-API-Key':'YYY'}})
+                url : host + '/skills'})
             .success(function(data, status) {
                 $scope.habilidades = data.skills;
                 console.log(data);
@@ -227,8 +224,7 @@ app.controller('HabilidadesCtrl', function ($scope,$http, $mdDialog,$routeParams
     };
         $scope.getCategorias = function() {
         $http({ method : 'GET',
-                url : host + '/categories', 
-                headers: { 'X-Parse-Application-Id':'XXX', 'X-Parse-REST-API-Key':'YYY'}})
+                url : host + '/categories'})
             .success(function(data, status) {
                 $scope.categorias = data.categories;
                 console.log(data);
@@ -306,8 +302,7 @@ app.controller('CategoriasCtrl', function ($scope,$http, $mdDialog,$routeParams,
 
     $scope.getCategorias = function() {
         $http({ method : 'GET',
-                url : host + '/categories', 
-                headers: { 'X-Parse-Application-Id':'XXX', 'X-Parse-REST-API-Key':'YYY'}})
+                url : host + '/categories'})
             .success(function(data, status) {
                 $scope.categorias = data.categories;
                 console.log(data);
